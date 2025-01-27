@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 p-0">
+      <app-sidebar></app-sidebar>
+      <!-- <h1> ihuiuu</h1> -->
+    </div>
+    <div class="col-md-10">
+      <app-header></app-header>
+
+      <h4><img src="../assets/Icons/back_arrow.svg" alt="Edit" class=""> Add Leads</h4>
+      <div class="container mt-4">
+        <!-- Tab navigation -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="activeTab === 'create-lead'" (click)="setActiveTab('create-lead')"
+              href="javascript:void(0)">Create Lead</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="activeTab === 'my-leads'" (click)="setActiveTab('my-leads')"
+              href="javascript:void(0)">My Leads</a>
+          </li>
+        </ul>
+      </div>
+
+
+
+
+      <div class="card mt-4" *ngIf="activeTab === 'create-lead'">
+        <div class="card-body">
+          <h5 class="heading">Lead Details</h5>
+          <p class="text-muted">Input essential information about leads</p>
+          <form>
+            <div class="row g-2  mt-3">
+              <!-- Name Field -->
+              <div class="col-md-3">
+                <label for="name" class="form-label fw-bold">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Type here" required />
+              </div>
+              <!-- Mobile Number Field -->
+              <div class="col-md-2">
+                <label for="mobile" class="form-label fw-bold">Mobile Number</label>
+                <input type="text" class="form-control" id="mobile" placeholder="**2016757" required />
+              </div>
+              <!-- Email Field -->
+              <div class="col-md-3">
+                <label for="email" class="form-label fw-bold">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="accounts@in" required />
+              </div>
+              <!-- Type Field -->
+              <div class="col-md-3">
+                <label for="type" class="form-label fw-bold">Type</label>
+                <select id="type" class="form-select" required>
+                  <option selected disabled>Select Type</option>
+                  <option value="type1">Type 1</option>
+                  <option value="type2">Type 2</option>
+                </select>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+              <button type="submit" class="btn1 ">
+                Submit & Proceed
+                <img src="../assets/Icons/next_arrow.svg" alt="Arrow" class="arrow-Icons " />
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+
+      <div class="container mt-4 " *ngIf="activeTab === 'my-leads'">
+        <div class=" d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h4>My Leads</h4>
+            <p>Find your leads</p>
+          </div>
+
+          <div class="d-flex main">
+
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText" />
+              <span class="input-group-text">
+                <i class="bi bi-search"></i>
+              </span>
+            </div>
+            <button class="btn btn-outline-secondary">
+              Filter <img src="../assets/Icons/filter.svg" alt="Edit" class="filter">
+            </button>
+          </div>
+        </div>
+
+
+
+
+        <table class="table table-bordered ">
+          <thead class="table-light">
+            <tr>
+              <th>
+                <input type="checkbox" />
+              </th>
+              <th>Name</th>
+              <th>Phone No.</th>
+              <th>Email ID</th>
+              <th>Unit</th>
+              <th>
+                Status <img src="../assets/Icons/status.svg" alt="Edit" class="Icons-pencil">
+              </th>
+
+              <th>
+                Remark <img src="../assets/Icons/remark.svg" alt="Edit" class="Icons-pencil">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lead of filteredLeads">
+              <td>
+                <input type="checkbox" />
+              </td>
+              <td>{{ lead.name }}</td>
+              <td>{{ lead.phone }}</td>
+              <td>{{ lead.email }}</td>
+              <td>{{ lead.unit }}</td>
+              <td>{{ lead.status }}</td>
+              <td>{{ lead.remark }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">
+              <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item" *ngFor="let page of totalPages" [class.active]="currentPage === page"
+              (click)="goToPage(page)">
+              <a class="page-link">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages.length"
+              (click)="goToPage(currentPage + 1)">
+              <a class="page-link">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

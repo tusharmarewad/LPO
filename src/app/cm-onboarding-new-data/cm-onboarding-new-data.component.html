@@ -1,0 +1,289 @@
+
+
+
+<div class="container-fluid">
+    <div class="row p-0">
+        <div class="col-md-2 p-0">
+            <app-sidebar></app-sidebar>
+           
+        </div>
+        <div class="col-md-10">
+            <app-header></app-header>
+
+
+            <h4 class="name">< Onboarding > New Data</h4>
+             <!-- First Row -->
+             <div class="row mb-4">
+                <div class="col-md-3">
+                  <label for="srn" class="form-label">Select Project ID</label>
+                  <select id="mode_meeting" class="form-select mb-2">
+                      <option selected>Select</option>
+                  </select>
+                 </div>
+              <div class="col-md-3">
+                  <label for="meething_date" class="form-label">Project Name</label>
+                  <input type="text" id="meething_date" class="form-control" value="" />
+              </div>
+              <div class="col-md-3">
+                  <label for="meething_time" class="form-label">Location</label>
+                  <input type="text" id="meething_time" class="form-control" value="pune" />
+              </div>
+              <div class="col-md-3">
+                  <div class="project_add">
+                      <button class="btn submit">
+                          Start
+                      </button>
+                  </div>
+              </div>
+          </div>
+
+
+
+
+
+
+
+
+
+          <div class="container mt-4">
+            <!-- Tab navigation -->
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link" [class.active]="activeTab === 'Login_Details'" (click)="setActiveTab('Login_Details')"
+                  href="javascript:void(0)">Login Details</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [class.active]="activeTab === 'Project_Details'" (click)="setActiveTab('Project_Details')"
+                  href="javascript:void(0)">Project Details</a>
+              </li>
+            </ul>
+          </div>
+
+
+            <div  *ngIf="activeTab === 'Login_Details'">
+
+          <div class="row mt-4">
+           
+                <div class="col-3">
+                    <label for="Upload_Login_Details" class="form-label">Upload Login Details</label>
+                    <input type="text" id="Upload_Login_Details" class="form-control" value="" placeholder="XYZ"/>
+                </div>
+
+                <div class="col-3">
+                    <div class="project_add">
+                        <button class="btn submit">
+                        Submit
+                        </button>
+                    </div>
+                </div>
+          
+        
+
+
+
+
+
+          <div class="container mt-4">
+            <div class="table-responsive  shadow">
+              <table class="table table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>Employee No.</th>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Role</th>
+                    <th colspan="2">Project Name</th>
+                    <th colspan="2">Project Name</th>
+                    <th>Email ID</th>
+                    <th>Phone No.</th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Phase</th>
+                    <th>Building</th>
+                    <th>Phase</th>
+                    <th>Building</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>SM</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>RM</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Accountant</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Admin</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Builder</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+            </div>
+        </div>
+
+
+
+
+
+
+
+            <div class="container mt-4"  *ngIf="activeTab === 'Project_Details'">
+                <div>
+                  <div class="row mb-3">
+                    <div class="col-md-3">
+                      <label for="projectFullName" class="form-label">Project Full Name</label>
+                      <input type="text" class="form-control" id="projectFullName" placeholder="Enter project name" />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="noOfPhases" class="form-label">No. of Phases</label>
+                      <select id="noOfPhases" class="form-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                      <button class="btn submit w-100">Go Ahead</button>
+                    </div>
+                  </div>
+              
+                  <!-- Phase 1 -->
+                  <div class="phase-section mb-4">
+                    <h5>Phase 1</h5>
+                    <div class="row g-3">
+                      <div class="col-md-3">
+                        <label for="phase1Name" class="form-label">Phase 1 Name</label>
+                        <input type="text" class="form-control" id="phase1Name" placeholder="Enter phase name" />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="NoofBuildings" class="form-label">No. of Buildings</label>
+                        <select id="NoofBuildings" class="form-select">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2 d-flex align-items-end">
+                        <button class="btn submit w-100">Okay</button>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <div class="row g-3" *ngFor="let building of [1, 2, 3]">
+                        <div class="col-md-3">
+                          <label for="buildingName" class="form-label">Building {{ building }} Name</label>
+                          <input type="text" class="form-control" id="buildingName" placeholder="Enter building name" />
+                        </div>
+                        <div class="col-md-3">
+                          <label for="uploadDetails" class="form-label">Upload Details</label>
+                          <input type="file" class="form-control" id="uploadDetails" />
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                          <button class="btn submit w-100">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <!-- Phase 2 -->
+                  <div class="phase-section">
+                    <h5>Phase 2</h5>
+                    <div class="row g-3">
+                      <div class="col-md-3">
+                        <label for="phase2Name" class="form-label">Phase 2 Name</label>
+                        <input type="text" class="form-control" id="phase2Name" placeholder="Enter phase name" />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="NoofBuildings" class="form-label">No. of Buildings</label>
+                        <select id="NoofBuildings" class="form-select">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2 d-flex align-items-end">
+                        <button class="btn submit w-100">Okay</button>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <div class="row g-3" *ngFor="let building of [1, 2]">
+                        <div class="col-md-3">
+                          <label for="buildingName" class="form-label">Building {{ building }} Name</label>
+                          <input type="text" class="form-control" id="buildingName" placeholder="Enter building name" />
+                        </div>
+                        <div class="col-md-3">
+                          <label for="uploadDetails" class="form-label">Upload Details</label>
+                          <input type="file" class="form-control" id="uploadDetails" />
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                          <button class="btn submit w-100">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+    </div>
+</div>
+
+
+
